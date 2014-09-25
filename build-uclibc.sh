@@ -345,7 +345,7 @@ if "${config_path}"/configure --target=${triplet} \
         --disable-fast-install --with-endian=${ARC_ENDIAN} ${DISABLEWERROR} \
         --disable-multilib \
         --enable-languages=c --prefix="${INSTALLDIR}" \
-        --without-headers --enable-shared --disable-threads --disable-tls \
+        --without-headers --enable-shared \
         --disable-libssp --disable-libmudflap --without-newlib --disable-c99 \
         --disable-libgomp ${CONFIG_EXTRA} \
         --with-sysroot=${SYSROOTDIR} \

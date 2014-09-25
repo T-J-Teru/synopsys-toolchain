@@ -1,3 +1,9 @@
+2014-09-25  Andrew Burgess  <andrew.burgess@embecosm.com>
+
+	* build-uclibc.sh: Remove --disable-threads and --disable-tls
+	options.
+	* arc-versions.sh: Update binutils, gcc, and uclibc versions.
+
 2014-09-16  Jeremy Bennett  <jeremy.bennett@embecosm.com>
 
 	* build-kernel.sh: Tidy up --help option and commenting.

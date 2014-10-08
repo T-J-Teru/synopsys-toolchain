@@ -81,7 +81,7 @@ binutils="binutils:arc-2.23-tls"
 gcc="gcc:arc-4.8-tls"
 gdb="gdb:arc-7.5-dev"
 newlib="newlib:arc-2.0-dev"
-uclibc="uClibc:joern-arc-mainline-dev-nptl-OLD"
+uclibc="uClibc:arc-mainline-dev"
 
 if [ "x${uclibc_arg}" = "x--uclibc" ]
 then

@@ -292,7 +292,10 @@ then
 	-e 's/CONFIG_FEATURE_IFUPDOWN_IPV6=y/# CONFIG_FEATURE_IFUPDOWN_IPV6 is not set/' \
 	-e 's/CONFIG_TRACEROUTE6=y/# CONFIG_TRACEROUTE6 is not set/' \
 	-e 's/CONFIG_CROSS_COMPILER_PREFIX=""/CONFIG_CROSS_COMPILER_PREFIX="arc-linux-uclibc-"/' \
-	-e 's|CONFIG_PREFIX="./_install"|CONFIG_PREFIX="../arc_initramfs"|'
+	-e 's|CONFIG_PREFIX="./_install"|CONFIG_PREFIX="../arc_initramfs"|' \
+        -e 's/CONFIG_EJECT=y/# CONFIG_EJECT is not set/' \
+        -e 's/CONFIG_FEATURE_EJECT_SCSI=y/# CONFIG_FEATURE_EJECT_SCSI is not set/' \
+        -e 's/# CONFIG_STATIC is not set/CONFIG_STATIC=y/'
 
     logterm "Making BusyBox..."
     if ! make >> $logfile 2>&1

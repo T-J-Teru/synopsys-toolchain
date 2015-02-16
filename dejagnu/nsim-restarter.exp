@@ -1,0 +1,36 @@
+# Run tool that will possibly restart nSIM if requried.
+
+proc restart_nsim { } {
+    set spawn_id -1
+    set timeout 30
+    set result -1
+
+    verbose -log "Entering restart_nsim..."
+
+    spawn query-sim.pl
+    expect {
+        -i $spawn_id -re "WAIT" {
+            exp_continue
+        }
+        -i $spawn_id -re "OK" {
+            set result 1
+        }
+        -i $spawn_id -re "DEAD" {
+            set result 0
+        }
+        -i $spawn_id timeout {
+            close -i $spawn_id
+            wait -i $spawn_id
+            set $spawn_id -1
+        }
+    }
+
+    if { $spawn_id > 0 } {
+        wait -i $spawn_id
+        set $spawn_id -1
+    }
+
+    verbose -log "Leaving restart_nsim (result = $result)."
+
+    return $result
+}

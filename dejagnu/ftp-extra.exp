@@ -20,6 +20,7 @@
 # You should have received a copy of the GNU General Public License along
 # with this program.  If not, see <http://www.gnu.org/licenses/>.          
 
+search_and_load_file "library file" "nsim-restarter.exp" ${boards_dir}
 
 # -----------------------------------------------------------------------------
 # For FTP we need to redefine some existing functions to add additional
@@ -82,6 +83,9 @@ proc ftp_upload {host localfile remotefile} {
 	    }
 	}
 	if {$loop} {
+	    # Possibly restart nSIM.
+	    restart_nsim
+
 	    set spawn_id [ftp_open $host]
 	    if {$spawn_id < 0} {
 		return ""

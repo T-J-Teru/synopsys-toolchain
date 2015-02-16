@@ -21,6 +21,7 @@
 # You should have received a copy of the GNU General Public License along
 # with this program.  If not, see <http://www.gnu.org/licenses/>.          
 
+search_and_load_file "library file" "nsim-restarter.exp" ${boards_dir}
 
 # -----------------------------------------------------------------------------
 # For telnet targets we need to define some functions.
@@ -203,6 +204,9 @@ proc telnet_exec {boardname program args} {
 	-i $spawn_id default {
 	    # Timeout or EOF. Die if we have had too many failures
 	    telnet_failure_check $connhost "no prompt at telnet start"
+
+            # Possibly restart nSIM.
+            restart_nsim
 
 	    # Try closing the connection and reopening.
 	    telnet_close $connhost

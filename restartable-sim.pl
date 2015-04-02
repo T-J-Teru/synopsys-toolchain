@@ -46,7 +46,7 @@ my $DEFAULT_PORT = 7890;
 my $DEFAULT_IP = "localhost";
 my $NSIM_IP = "192.168.218.2";
 my $NSIM = undef;
-my $MAX_RESTART_ITERATIONS = 120;
+my $MAX_RESTART_ITERATIONS = 240;
 
 #========================================================================#
 
